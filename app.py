@@ -210,7 +210,16 @@ def app():
                 time.sleep(1.5)
         elif choice == '4':
             #book analysis 
-            pass
+            oldest_book = session.query(Book).order_by(Book.published_date).first()
+            newest_book = session.query(Book).order_by(Book.published_date.desc()).first()
+            total_books = session.query(Book).count()
+            python_books = session.query(Book).filter(Book.title.like('%Python%')).count()
+            print (f'''\n***** BOOK ANALYSIS *****
+            \rOldest Book: {oldest_book.title}
+            \rNewest Book: {newest_book.title}
+            \rTotal Books: {total_books}
+            \rBooks w/ Python in the title: {python_books}''')
+            input('\nPress enter to return to the mian menu.....')
         else:
             print ('GOODBYE!!')
             app_running = False
