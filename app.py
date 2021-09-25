@@ -150,7 +150,6 @@ def app():
     while app_running:
         choice = menu()
         if choice == '1':
-            # add book
             title = input('Title: ')
             author = input('Author: ')
             date_error = True
@@ -209,7 +208,6 @@ def app():
                 print('Book Deleted!')
                 time.sleep(1.5)
         elif choice == '4':
-            #book analysis 
             oldest_book = session.query(Book).order_by(Book.published_date).first()
             newest_book = session.query(Book).order_by(Book.published_date.desc()).first()
             total_books = session.query(Book).count()
@@ -230,10 +228,3 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
     add_csv()
     app()
-    
-
-    for book in session.query(Book):
-        print(book)
-    
-
-    
