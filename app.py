@@ -28,7 +28,28 @@ def menu():
 # loop runs programe
 
 
+def app():
+    app_running = True
+    while app_running:
+        choice = menu()
+        if choice == '1':
+            # add book
+            pass
+        elif choice == '2':
+            # view books
+            pass
+        elif choice == '3':
+            #Search for book
+            pass
+        elif choice == '4':
+            #book analysis 
+            pass
+        else:
+            print ('GOODBYE!!')
+            app_running = False
+            
+
 
 if __name__ == '__main__':
     Base.metadata.create_all(engine)
-    menu()
+    app()
